@@ -1,0 +1,333 @@
+/* 기본 리셋 및 변수 설정 */
+:root[data-theme='pillLight'] {
+  /* Primary */
+  --primary: #3b82f6;
+  --primary-focus: #2563eb;
+  --primary-content: #ffffff;
+
+  /* Secondary */
+  --secondary: #8b5cf6;
+  --secondary-focus: #7c3aed;
+  --secondary-content: #ffffff;
+
+  /* Accent */
+  --accent: #10b981;
+  --accent-focus: #059669;
+  --accent-content: #ffffff;
+
+  /* Neutral */
+  --neutral: #64748b;
+  --neutral-focus: #475569;
+  --neutral-content: #ffffff;
+
+  /* Base */
+  --base-100: #ffffff;
+  --base-200: #f8fafc;
+  --base-300: #e2e8f0;
+  --base-content: #1e293b;
+
+  /* State colors */
+  --info: #0ea5e9;
+  --info-content: #ffffff;
+  --success: #22c55e;
+  --success-content: #ffffff;
+  --warning: #f59e0b;
+  --warning-content: #ffffff;
+  --error: #ef4444;
+  --error-content: #ffffff;
+}
+
+:root[data-theme='pillDark'] {
+  /* Primary */
+  --primary: #60a5fa;
+  --primary-focus: #3b82f6;
+  --primary-content: #000000;
+
+  /* Secondary */
+  --secondary: #a78bfa;
+  --secondary-focus: #8b5cf6;
+  --secondary-content: #000000;
+
+  /* Accent */
+  --accent: #34d399;
+  --accent-focus: #10b981;
+  --accent-content: #000000;
+
+  /* Neutral */
+  --neutral: #94a3b8;
+  --neutral-focus: #64748b;
+  --neutral-content: #000000;
+
+  /* Base */
+  --base-100: #0f172a;
+  --base-200: #1e293b;
+  --base-300: #334155;
+  --base-content: #f1f5f9;
+
+  /* State colors */
+  --info: #38bdf8;
+  --info-content: #000000;
+  --success: #4ade80;
+  --success-content: #000000;
+  --warning: #fbbf24;
+  --warning-content: #000000;
+  --error: #f87171;
+  --error-content: #000000;
+}
+
+/* Body 기본 스타일 */
+body {
+  background-color: var(--base-100);
+  color: var(--base-content);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+  margin: 0;
+  font-family:
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* 버튼 기본 스타일 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--primary-content);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-focus);
+}
+
+.btn-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-content);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-focus);
+}
+
+.btn-accent {
+  background-color: var(--accent);
+  color: var(--accent-content);
+}
+
+.btn-accent:hover {
+  background-color: var(--accent-focus);
+}
+
+.btn-neutral {
+  background-color: var(--neutral);
+  color: var(--neutral-content);
+}
+
+.btn-neutral:hover {
+  background-color: var(--neutral-focus);
+}
+
+/* 카드 스타일 */
+.card {
+  background-color: var(--base-200);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--base-content);
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+/* 배지 스타일 */
+.badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  margin: 0.25rem;
+}
+
+.badge-primary {
+  background-color: var(--primary);
+  color: var(--primary-content);
+}
+
+.badge-secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-content);
+}
+
+.badge-accent {
+  background-color: var(--accent);
+  color: var(--accent-content);
+}
+
+.badge-info {
+  background-color: var(--info);
+  color: var(--info-content);
+}
+
+.badge-success {
+  background-color: var(--success);
+  color: var(--success-content);
+}
+
+.badge-warning {
+  background-color: var(--warning);
+  color: var(--warning-content);
+}
+
+.badge-error {
+  background-color: var(--error);
+  color: var(--error-content);
+}
+
+/* Alert 스타일 */
+.alert {
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.alert-info {
+  background-color: var(--info);
+  color: var(--info-content);
+}
+
+.alert-success {
+  background-color: var(--success);
+  color: var(--success-content);
+}
+
+.alert-warning {
+  background-color: var(--warning);
+  color: var(--warning-content);
+}
+
+.alert-error {
+  background-color: var(--error);
+  color: var(--error-content);
+}
+
+/* Input 스타일 */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: 2px solid var(--base-300);
+  background-color: var(--base-100);
+  color: var(--base-content);
+  transition: border-color 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* 약 복용 리스트 아이템 */
+.pill-item {
+  background-color: var(--base-200);
+  border-left: 4px solid var(--primary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 0.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pill-item.completed {
+  border-left-color: var(--success);
+}
+
+.pill-item.pending {
+  border-left-color: var(--warning);
+}
+
+.pill-item.missed {
+  border-left-color: var(--error);
+}
+
+.pill-name {
+  font-weight: 600;
+  color: var(--base-content);
+  margin-bottom: 0.25rem;
+}
+
+.pill-time {
+  font-size: 0.875rem;
+  color: var(--neutral);
+}
+
+/* 유틸리티 클래스 */
+.text-primary {
+  color: var(--primary);
+}
+.text-secondary {
+  color: var(--secondary);
+}
+.text-accent {
+  color: var(--accent);
+}
+.text-neutral {
+  color: var(--neutral);
+}
+.text-base-content {
+  color: var(--base-content);
+}
+
+.bg-base-100 {
+  background-color: var(--base-100);
+}
+.bg-base-200 {
+  background-color: var(--base-200);
+}
+.bg-base-300 {
+  background-color: var(--base-300);
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+}
