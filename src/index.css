@@ -1,1 +1,21 @@
-@import 'tailwindcss';
+@import "tailwindcss";
+
+/* 1. 나눔스퀘어 폰트 불러오기 (CDN) */
+@import url('https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@2.0/nanumsquare.css');
+
+@theme {
+  /* 2. 테마에 폰트 등록 */
+  --font-main: "NanumSquare", sans-serif;
+}
+
+/* 3. 전체 적용 */
+@layer base {
+  body {
+    /* 나눔스퀘어는 자간을 살짝 줄여야(tracking-tight) 더 세련되어 보임 */
+    @apply font-main antialiased tracking-tight text-[#333];
+  }
+  
+  h1 {
+    @apply text-3xl font-extrabold mb-4;
+  }
+}
