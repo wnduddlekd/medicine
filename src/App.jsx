@@ -1,15 +1,8 @@
 import './App.css';
-import { Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Meds from './pages/Meds';
+import Router from './router/router';
 
 function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/medicines" element={<Meds />} />
-    </Routes>
-  );
+  return <Router />;
 }
 
 export default App;
