@@ -1,7 +1,61 @@
 @import 'tailwindcss';
 
+/* 1. Pretendard 폰트 불러오기 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+@theme {
+  /* 폰트 패밀리 */
+  --font-pretendard: 'Pretendard', sans-serif;
+
+  /* 메인 텍스트 컬러 (#1A1A1A) */
+  --color-primary: #1a1a1a;
+
+  /* 글자 크기 (Text Sizes) */
+  --text-h1: 48px;
+  --text-h2: 36px;
+  --text-h3: 28px;
+  --text-h4: 22px;
+  --text-h5: 18px;
+  --text-h6: 16px;
+  --text-p: 16px;
+  --text-small: 14px;
+
+  /* 줄 간격 (Line Height) */
+  --leading-heading: 1.2; /* H1 ~ H6: 120% */
+  --leading-body: 1.5; /* P, Small: 150% */
+}
+
+/* 기본 태그에 디자인 시스템 자동 적용 */
 @layer base {
-  html {
-    font-family: 'Pretendard', system-ui, sans-serif;
+  body {
+    /* 기본적으로 P 태그 사이즈와 150% 줄간격, Primary 컬러 적용 */
+    @apply font-pretendard text-p leading-body text-primary antialiased;
   }
+
+  /* 각 제목 태그별 크기, 120% 줄간격, 굵기 매핑 */
+  h1 {
+    @apply text-h1 leading-heading font-extrabold;
+  } /* 800 */
+  h2 {
+    @apply text-h2 leading-heading font-bold;
+  } /* 700 */
+  h3 {
+    @apply text-h3 leading-heading font-bold;
+  } /* 700 */
+  h4 {
+    @apply text-h4 leading-heading font-medium;
+  } /* 500 */
+  h5 {
+    @apply text-h5 leading-heading font-medium;
+  } /* 500 */
+  h6 {
+    @apply text-h6 leading-heading font-normal;
+  } /* 400 */
+
+  p {
+    @apply text-p leading-body font-normal;
+  } /* 400 */
+  small {
+    @apply text-small leading-body font-normal;
+  } /* 400 */
 }
