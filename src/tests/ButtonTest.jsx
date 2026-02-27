@@ -1,5 +1,5 @@
 import { Search, Plus, Trash2, ArrowRight, Download } from 'lucide-react';
-import Button from '../components/commons/Button';
+import Button from '@/components/commons/Button';
 
 export default function ButtonTest() {
   return (
