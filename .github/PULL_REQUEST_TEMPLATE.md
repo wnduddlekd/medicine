@@ -1,11 +1,3 @@
----
-name: 🔀 Pull Request
-about: 모든 변경 사항을 제출하는 공용 PR 템플릿
-title: '[Type] '
-labels: ''
-assignees: ''
----
-
 ## 📌 작업 내용
 
 -
@@ -18,3 +10,5 @@ assignees: ''
 ## 📷 스크린샷
 
 <!-- 가능하다면 UI 스크린샷, 디자인 캡처 등을 첨부해주세요 -->
+
+closes #
