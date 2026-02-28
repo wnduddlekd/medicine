@@ -1,8 +1,13 @@
 import './App.css';
-import Router from './router/router';
+import Meds from './pages/Meds';
+import './styles/Theme.css';
 
 function App() {
-  return <Router />;
+  return (
+    <div className="App">
+      <Meds />
+    </div>
+  );
 }
 
 export default App;

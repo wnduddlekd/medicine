@@ -124,7 +124,9 @@ export default function ButtonTest() {
             marginTop: '0.75rem',
           }}
         >
-          <Button pill>Primary</Button>
+          <Button pill style={{ width: '2.5rem', padding: 0 }}>
+            Primary
+          </Button>
           <Button variant="secondary" pill>
             Secondary
           </Button>
