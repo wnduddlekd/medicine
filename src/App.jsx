@@ -1,6 +1,5 @@
 import './App.css';
 import CheckIn from './pages/CheckIn';
-import './styles/Theme.css';
 
 function App() {
   return (
