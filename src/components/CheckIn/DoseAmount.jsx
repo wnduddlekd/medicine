@@ -1,19 +1,23 @@
+import Button from '../commons/Button';
+import { Pill } from 'lucide-react';
+
 export default function DoseAmount({ selected, onChange }) {
   return (
     <div className="card bg-base-100 shadow-sm border border-base-300 flex flex-row justify-between items-center">
-      <span className="font-bold">💊 하루 복용량</span>
+      <span className="font-bold flex items-center gap-1">
+        <Pill size={16} /> 하루 복용량
+      </span>
       <div className="flex gap-3">
         {[1, 2, 3].map((num) => (
-          <button
+          <Button
+            pill
+            variant={selected === num ? 'primary' : 'subtle'}
+            size="sm"
             key={num}
-            className={`btn btn-pill ${
-              selected === num ? 'btn-neutral' : 'btn-outline btn-neutral'
-            }`}
-            style={{ width: '1.8rem', padding: 0 }}
             onClick={() => onChange(num)}
           >
             {num}
-          </button>
+          </Button>
         ))}
       </div>
     </div>
