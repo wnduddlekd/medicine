@@ -1,11 +1,3 @@
----
-name: 🔀 Pull Request
-about: 모든 변경 사항을 제출하는 공용 PR 템플릿
-title: '[FEAT] '
-labels: ''
-assignees: ''
----
-
 ## 📌 작업 내용
 
 -

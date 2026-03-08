@@ -1,0 +1,25 @@
+name: PR & Push Discord Notify
+
+on:
+  pull_request:
+    types: [opened, closed, reopened]
+  push:
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send to Discord
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          if [ "${{ github.event_name }}" = "pull_request" ]; then
+            MESSAGE="📌 PR: ${{ github.event.pull_request.title }}\n👤 ${{ github.actor }}\n🔗 ${{ github.event.pull_request.html_url }}"
+          else
+            MESSAGE="🚀 Push by ${{ github.actor }}\n🔗 https://github.com/${{ github.repository }}/commit/${{ github.sha }}"
+          fi
+
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{\"content\": \"$MESSAGE\"}" \
+          $DISCORD_WEBHOOK
