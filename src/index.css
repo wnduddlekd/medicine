@@ -1,13 +1,11 @@
-@import 'tailwindcss';
-
-/* 1. Pretendard 폰트 불러오기 */
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+@import 'tailwindcss';
 
 @theme {
   /* 폰트 패밀리 */
   --font-pretendard: 'Pretendard', sans-serif;
 
-  /* 메인 텍스트 컬러 (#1A1A1A) */
+  /* 메인 텍스트 컬러 */
   --color-primary: #1a1a1a;
 
   /* 글자 크기 (Text Sizes) */
@@ -21,18 +19,15 @@
   --text-small: 14px;
 
   /* 줄 간격 (Line Height) */
-  --leading-heading: 1.2; /* H1 ~ H6: 120% */
-  --leading-body: 1.5; /* P, Small: 150% */
+  --leading-heading: 1.2;
+  --leading-body: 1.5;
 }
 
-/* 기본 태그에 디자인 시스템 자동 적용 */
 @layer base {
   body {
-    /* 기본적으로 P 태그 사이즈와 150% 줄간격, Primary 컬러 적용 */
     @apply font-pretendard text-p leading-body text-primary antialiased;
   }
 
-  /* 각 제목 태그별 크기, 120% 줄간격, 굵기 매핑 */
   h1 {
     @apply text-h1 leading-heading font-extrabold;
   } /* 800 */
