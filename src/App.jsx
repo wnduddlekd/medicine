@@ -1,12 +1,10 @@
 import './App.css';
-import CheckIn from './pages/CheckIn';
+
+import { Router } from './router/router';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
-  return (
-    <div className="App">
-      <CheckIn />
-    </div>
-  );
+  return <RouterProvider router={Router} />;
 }
 
 export default App;
