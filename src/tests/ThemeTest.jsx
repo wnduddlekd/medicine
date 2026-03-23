@@ -86,9 +86,6 @@ export default function ThemeTest() {
             <ColorBox color="primary-focus" label="Primary Focus" />
             <ColorBox color="secondary-focus" label="Secondary Focus" />
             <ColorBox color="accent-focus" label="Accent Focus" />
-            <ColorBox color="success-focus" label="Success Focus" />
-            <ColorBox color="warning-focus" label="Warning Focus" />
-            <ColorBox color="error-focus" label="Error Focus" />
           </div>
         </Card>
 
