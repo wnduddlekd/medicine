@@ -2,8 +2,8 @@ import { Outlet } from 'react-router-dom';
 
 export default function MainLayout() {
   return (
-    <div className="min-h-screen bg-base-200 p-6 flex flex-col items-center">
-      <div className="w-full max-w-md flex flex-col flex-1">
+    <div className="min-h-screen bg-base-100 flex flex-col items-center">
+      <div className="w-full flex flex-col flex-1">
         {/* Header */}
 
         {/* Page */}
