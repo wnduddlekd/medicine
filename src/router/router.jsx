@@ -8,6 +8,7 @@ import MainLayout from '../Layout/MainLayout';
 import TestHub from '../tests/TestHub';
 import ThemeTest from '../tests/ThemeTest';
 import ButtonTest from '../tests/ButtonTest';
+import { ROUTES } from '../constants/routes';
 
 export const Router = createBrowserRouter([
   {
@@ -18,11 +19,11 @@ export const Router = createBrowserRouter([
       { path: '/test/ThemeTest', element: <ThemeTest /> },
       { path: '/test/ButtonTest', element: <ButtonTest /> },
 
-      { path: '/home', element: <Home /> },
-      { path: '/check-in', element: <CheckIn /> },
-      { path: '/my-meds', element: <Meds /> },
-      { path: '/calender', element: <Calender /> },
-      { path: '/insights', element: <Insights /> },
+      { path: ROUTES.HOME, element: <Home /> },
+      { path: ROUTES.CHECK_IN, element: <CheckIn /> },
+      { path: ROUTES.MY_MEDS, element: <Meds /> },
+      { path: ROUTES.CALENDER, element: <Calender /> },
+      { path: ROUTES.INSIGHTS, element: <Insights /> },
     ],
   },
 ]);
