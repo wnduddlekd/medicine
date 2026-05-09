@@ -1,5 +1,6 @@
 import DailyDoseFeedback from '../components/Home/DailyDoseFeedback';
 import HomeCalender from '../components/Home/HomeCalender.jsx';
+import UserInfo from '../components/Home/UserInfo.jsx';
 import { medicines } from '../Mocks/medicationMock.js';
 
 export default function Main() {
@@ -10,7 +11,9 @@ export default function Main() {
         <div>
           <HomeCalender />
         </div>
-        <div className="flex flex-col items-center w-full"></div>
+        <div className="flex flex-col items-center w-full">
+          <UserInfo />
+        </div>
       </div>
     </div>
   );
