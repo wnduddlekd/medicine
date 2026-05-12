@@ -161,7 +161,7 @@
 }
 
 @utility check-base {
-  @apply w-5 h-5 border-2 border-primary accent-primary;
+  @apply w-5 h-5 border-2 border-primary accent-primary cursor-pointer;
 }
 
 @layer base {
