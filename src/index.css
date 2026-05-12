@@ -160,33 +160,29 @@
   @apply px-5 py-6 bg-base-200 rounded-xl shadow-md shadow-base-300;
 }
 
+@utility check-base {
+  @apply w-5 h-5 border-2 border-primary accent-primary;
+}
+
 @layer base {
   body {
     @apply font-pretendard text-p leading-body text-base-content bg-base-100 antialiased transition-colors duration-300;
   }
 
   h1 {
-    @apply text-h1 leading-heading font-extrabold;
+    @apply text-3xl leading-heading font-normal;
   }
 
   h2 {
-    @apply text-h2 leading-heading font-bold;
+    @apply text-h4 leading-heading font-normal;
   }
 
   h3 {
-    @apply text-h3 leading-heading font-bold;
+    @apply text-xl leading-heading font-normal;
   }
 
   h4 {
-    @apply text-h4 leading-heading font-medium;
-  }
-
-  h5 {
-    @apply text-h5 leading-heading font-medium;
-  }
-
-  h6 {
-    @apply text-h6 leading-heading font-normal;
+    @apply text-p leading-body font-normal text-neutral;
   }
 
   p {
@@ -194,6 +190,6 @@
   }
 
   small {
-    @apply text-small leading-body font-normal;
+    @apply text-small leading-body font-normal text-neutral;
   }
 }

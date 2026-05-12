@@ -11,7 +11,7 @@ export default function DosePeriod() {
       </div>
       <label className="flex items-center gap-2 cursor-pointer">
         <small>기록</small>
-        <input type="checkbox" className="w-5 h-5 accent-primary" />
+        <input type="checkbox" className="check-base" />
       </label>
     </div>
   );
