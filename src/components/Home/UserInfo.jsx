@@ -8,9 +8,7 @@ export default function UserInfo() {
           프로필
         </div>
         <div className="flex flex-col justify-center y-full pl-4 gap-1.5">
-          <h3 className="font-medium whitespace-nowrap overflow-visible">
-            고양이에옹
-          </h3>
+          <h2 className="whitespace-nowrap overflow-visible">고양이에옹</h2>
           <p className="text-neutral">만 2세 · 여자</p>
         </div>
       </div>

@@ -16,7 +16,7 @@ export default function DailyDoseFeedback({ medicines }) {
   }
   return (
     <div className="card-base">
-      <h4 className="font-normal text-primary">{message}</h4>
+      <h3 className="text-primary">{message}</h3>
     </div>
   );
 }
