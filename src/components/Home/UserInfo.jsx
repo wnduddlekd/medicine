@@ -1,6 +1,9 @@
 import Button from '@/components/commons/Button.jsx';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '@/constants/routes';
 
 export default function UserInfo() {
+  const navigate = useNavigate();
   return (
     <div className="max-w-61 py-5 space-y-3">
       <div className="flex">
@@ -19,10 +22,15 @@ export default function UserInfo() {
         </div>
       </>
       <div className="flex gap-2.5 w-full">
-        <Button size="sm" fullWidth>
+        <Button size="sm" fullWidth onClick={() => navigate(ROUTES.CHECK_IN)}>
           약 추가
         </Button>
-        <Button size="sm" variant="secondary" fullWidth>
+        <Button
+          size="sm"
+          variant="secondary"
+          fullWidth
+          onClick={() => navigate(ROUTES.INSIGHTS)}
+        >
           약 관리
         </Button>
       </div>
