@@ -4,13 +4,11 @@ export default function MedsSearch({ value, onChange }) {
   return (
     <div className="relative">
       <Search
-        size={15}
-        className="absolute text-neutral"
-        style={{ left: '0.875rem', top: '50%', transform: 'translateY(-50%)' }}
+        size={16}
+        className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral"
       />
       <input
-        className="input"
-        style={{ paddingLeft: '2.5rem', fontSize: '0.9375rem' }}
+        className="input pl-10 text-p"
         type="text"
         placeholder="병원명, 약 이름으로 검색..."
         value={value}
