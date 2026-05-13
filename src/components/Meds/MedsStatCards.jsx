@@ -7,7 +7,7 @@ export default function MedsStatCards({ totalMeds, completedToday }) {
       </div>
       <div className="card-base bg-base-100 border border-base-300 text-center">
         <p className="text-neutral text-small mb-1">오늘 복약 완료</p>
-        <p className="text-h4 font-bold" style={{ color: 'var(--secondary)' }}>
+        <p className="text-h4 font-bold text-secondary">
           {completedToday}/{totalMeds}
         </p>
       </div>
