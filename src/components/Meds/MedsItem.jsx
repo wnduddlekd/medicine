@@ -141,29 +141,19 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
   // 일반 모드
   return (
     <div
-      className="pill-item"
-      style={{
-        borderLeftColor: borderColor,
-        flexDirection: 'column',
-        alignItems: 'stretch',
-        gap: 0,
-      }}
+      className="pill-item flex-col items-stretch"
+      style={{ borderLeftColor: borderColor }}
     >
       {/* 헤더 행 */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 flex-wrap">
-          <span className="pill-name" style={{ marginBottom: 0 }}>
-            {item.hospital}
-          </span>
+          <span className="pill-name mb-0">{item.hospital}</span>
           <DoseDots
             doses={item.doses}
             itemId={item.id}
             onDoseToggle={onDoseToggle}
           />
-          <span
-            className="text-neutral"
-            style={{ fontSize: '13px', whiteSpace: 'nowrap' }}
-          >
+          <span className="text-neutral text-small whitespace-nowrap">
             {item.startDate} ~ {item.endDate}
           </span>
         </div>
@@ -172,36 +162,14 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
           <button
             onClick={() => setIsEditing(true)}
             title="수정"
-            style={{
-              width: '28px',
-              height: '28px',
-              border: 'none',
-              background: 'transparent',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '0.375rem',
-              color: 'var(--neutral)',
-            }}
+            className="w-7 h-7 flex items-center justify-center rounded-md text-neutral cursor-pointer"
           >
             <Pencil size={14} />
           </button>
           <button
             onClick={() => onDelete(item.id)}
             title="삭제"
-            style={{
-              width: '28px',
-              height: '28px',
-              border: 'none',
-              background: 'transparent',
-              cursor: 'pointer',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              borderRadius: '0.375rem',
-              color: 'var(--neutral)',
-            }}
+            className="w-7 h-7 flex items-center justify-center rounded-md text-neutral cursor-pointer"
           >
             <Trash2 size={14} />
           </button>
@@ -210,12 +178,7 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
 
       {/* 약 목록 */}
       {item.meds && (
-        <p
-          className="text-neutral mt-1"
-          style={{ fontSize: '13px', lineHeight: '1.5' }}
-        >
-          {item.meds}
-        </p>
+        <p className="text-neutral text-small leading-body mt-1">{item.meds}</p>
       )}
 
       {/* 주의사항 토글 */}
@@ -223,34 +186,16 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
         <>
           <button
             onClick={() => setShowCaution((v) => !v)}
-            className="flex items-center gap-1"
-            style={{
-              fontSize: '13px',
-              background: 'none',
-              border: 'none',
-              cursor: 'pointer',
-              padding: 0,
-              marginTop: '4px',
-              width: 'fit-content',
-              userSelect: 'none',
-              color: 'var(--neutral)',
-            }}
+            className="flex items-center gap-1 text-small text-neutral w-fit cursor-pointer mt-1 select-none"
           >
             주의사항
             {showCaution ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
           </button>
 
           {showCaution && (
-            <div
-              className="bg-base-200 rounded-md mt-2"
-              style={{
-                padding: '0.625rem 0.75rem',
-                fontSize: '13px',
-                lineHeight: '1.6',
-              }}
-            >
+            <div className="bg-base-200 rounded-md mt-2 px-3 py-2.5 text-small leading-body">
               {item.caution.split('\n').map((line, i) => (
-                <p key={i} style={{ margin: '2px 0' }}>
+                <p key={i} className="my-0.5">
                   {line}
                 </p>
               ))}
