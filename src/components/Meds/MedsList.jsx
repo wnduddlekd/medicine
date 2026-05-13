@@ -1,4 +1,3 @@
-import Button from '../commons/Button';
 import MedsItem from './MedsItem';
 
 export default function MedsList({ items, onDelete, onDoseToggle, onEdit }) {
@@ -13,9 +12,6 @@ export default function MedsList({ items, onDelete, onDoseToggle, onEdit }) {
           onEdit={onEdit}
         />
       ))}
-      <Button variant="primary" fullWidth>
-        + 새 복약 추가
-      </Button>
     </div>
   );
 }
