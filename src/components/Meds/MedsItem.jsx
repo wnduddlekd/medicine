@@ -17,18 +17,9 @@ function DoseDots({ doses, itemId, onDoseToggle }) {
           key={i}
           onClick={() => onDoseToggle(itemId, i)}
           title={filled ? '복용 취소' : '복용 완료'}
-          style={{
-            display: 'inline-block',
-            width: '12px',
-            height: '12px',
-            borderRadius: '9999px',
-            backgroundColor: filled ? 'var(--primary)' : 'var(--base-300)',
-            flexShrink: 0,
-            cursor: 'pointer',
-            transition: 'background-color 0.15s ease, transform 0.1s ease',
-          }}
-          onMouseEnter={(e) => (e.target.style.transform = 'scale(1.3)')}
-          onMouseLeave={(e) => (e.target.style.transform = 'scale(1)')}
+          className={`inline-block w-3 h-3 rounded-full shrink-0 cursor-pointer transition-transform hover:scale-[1.3] ${
+            filled ? 'bg-primary' : 'bg-base-300'
+          }`}
         />
       ))}
     </div>
