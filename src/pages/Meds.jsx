@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import MedsStatCards from '../components/Meds/MedsStatCards';
 import MedsSearch from '../components/Meds/MedsSearch';
+import MedsFilter from '../components/Meds/MedsFilter';
+import MedsAddButton from '../components/Meds/MedsAddButton';
 import MedsList from '../components/Meds/MedsList';
 
 const INITIAL_MEDS = [
@@ -95,7 +97,13 @@ export default function Meds() {
   return (
     <div className="w-full space-y-4">
       <MedsStatCards totalMeds={totalMeds} completedToday={completedToday} />
-      <MedsSearch value={search} onChange={setSearch} />
+      <div className="flex items-center gap-2">
+        <div className="flex-1">
+          <MedsSearch value={search} onChange={setSearch} />
+        </div>
+        <MedsFilter />
+        <MedsAddButton />
+      </div>
       <MedsList
         items={filtered}
         onDelete={handleDelete}
