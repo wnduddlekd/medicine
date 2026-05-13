@@ -94,18 +94,15 @@ export default function Meds() {
   );
 
   return (
-    <div className="min-h-screen bg-base-200 p-6 flex flex-col items-center">
-      <MedsHeader />
-      <div className="w-full max-w-2xl space-y-4">
-        <MedsStatCards totalMeds={totalMeds} completedToday={completedToday} />
-        <MedsSearch value={search} onChange={setSearch} />
-        <MedsList
-          items={filtered}
-          onDelete={handleDelete}
-          onDoseToggle={handleDoseToggle}
-          onEdit={handleEdit}
-        />
-      </div>
+    <div className="w-full space-y-4">
+      <MedsStatCards totalMeds={totalMeds} completedToday={completedToday} />
+      <MedsSearch value={search} onChange={setSearch} />
+      <MedsList
+        items={filtered}
+        onDelete={handleDelete}
+        onDoseToggle={handleDoseToggle}
+        onEdit={handleEdit}
+      />
     </div>
   );
 }
