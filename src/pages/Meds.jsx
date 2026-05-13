@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import MedsHeader from '../components/Meds/MedsHeader';
 import MedsStatCards from '../components/Meds/MedsStatCards';
 import MedsSearch from '../components/Meds/MedsSearch';
 import MedsList from '../components/Meds/MedsList';
