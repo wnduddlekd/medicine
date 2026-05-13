@@ -1,14 +1,54 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
 @import 'tailwindcss';
 
+/* =========================
+  Tailwind Theme Tokens
+========================= */
+
 @theme {
-  /* 폰트 패밀리 */
+  /* Font */
   --font-pretendard: 'Pretendard', sans-serif;
 
-  /* 메인 텍스트 컬러 */
-  --color-primary: #1a1a1a;
+  /* Primary */
+  --color-primary: var(--primary);
+  --color-primary-focus: var(--primary-focus);
+  --color-primary-content: var(--primary-content);
 
-  /* 글자 크기 (Text Sizes) */
+  /* Secondary */
+  --color-secondary: var(--secondary);
+  --color-secondary-focus: var(--secondary-focus);
+  --color-secondary-content: var(--secondary-content);
+
+  /* Accent */
+  --color-accent: var(--accent);
+  --color-accent-focus: var(--accent-focus);
+  --color-accent-content: var(--accent-content);
+
+  /* Neutral */
+  --color-neutral: var(--neutral);
+  --color-neutral-focus: var(--neutral-focus);
+  --color-neutral-content: var(--neutral-content);
+
+  /* Base */
+  --color-base-100: var(--base-100);
+  --color-base-200: var(--base-200);
+  --color-base-300: var(--base-300);
+  --color-base-content: var(--base-content);
+
+  /* State */
+  --color-info: var(--info);
+  --color-info-content: var(--info-content);
+
+  --color-success: var(--success);
+  --color-success-content: var(--success-content);
+
+  --color-warning: var(--warning);
+  --color-warning-content: var(--warning-content);
+
+  --color-error: var(--error);
+  --color-error-content: var(--error-content);
+
+  /* Typography */
   --text-h1: 48px;
   --text-h2: 36px;
   --text-h3: 28px;
@@ -18,39 +58,138 @@
   --text-p: 16px;
   --text-small: 14px;
 
-  /* 줄 간격 (Line Height) */
   --leading-heading: 1.2;
   --leading-body: 1.5;
 }
 
+/* =========================
+  Light Theme
+========================= */
+
+:root[data-theme='pillLight'] {
+  /* Primary */
+  --primary: #3b82f6;
+  --primary-focus: #2563eb;
+  --primary-content: #ffffff;
+
+  /* Secondary */
+  --secondary: #8b5cf6;
+  --secondary-focus: #7c3aed;
+  --secondary-content: #ffffff;
+
+  /* Accent */
+  --accent: #10b981;
+  --accent-focus: #059669;
+  --accent-content: #ffffff;
+
+  /* Neutral */
+  --neutral: #64748b;
+  --neutral-focus: #475569;
+  --neutral-content: #ffffff;
+
+  /* Base */
+  --base-100: #ffffff;
+  --base-200: #f8fafc;
+  --base-300: #e2e8f0;
+  --base-content: #1e293b;
+
+  /* State */
+  --info: #0ea5e9;
+  --info-content: #ffffff;
+
+  --success: #22c55e;
+  --success-content: #ffffff;
+
+  --warning: #f59e0b;
+  --warning-content: #ffffff;
+
+  --error: #ef4444;
+  --error-content: #ffffff;
+}
+
+/* =========================
+  Dark Theme
+========================= */
+
+:root[data-theme='pillDark'] {
+  /* Primary */
+  --primary: #60a5fa;
+  --primary-focus: #3b82f6;
+  --primary-content: #000000;
+
+  /* Secondary */
+  --secondary: #a78bfa;
+  --secondary-focus: #8b5cf6;
+  --secondary-content: #000000;
+
+  /* Accent */
+  --accent: #34d399;
+  --accent-focus: #10b981;
+  --accent-content: #000000;
+
+  /* Neutral */
+  --neutral: #94a3b8;
+  --neutral-focus: #64748b;
+  --neutral-content: #000000;
+
+  /* Base */
+  --base-100: #0f172a;
+  --base-200: #1e293b;
+  --base-300: #334155;
+  --base-content: #f1f5f9;
+
+  /* State */
+  --info: #38bdf8;
+  --info-content: #000000;
+
+  --success: #4ade80;
+  --success-content: #000000;
+
+  --warning: #fbbf24;
+  --warning-content: #000000;
+
+  --error: #f87171;
+  --error-content: #000000;
+}
+
+/* =========================
+  Base Styles
+========================= */
+
+@utility card-base {
+  @apply px-5 py-6 bg-base-200 rounded-xl shadow-md shadow-base-300;
+}
+
+@utility check-base {
+  @apply w-5 h-5 border-2 border-primary accent-primary cursor-pointer;
+}
+
 @layer base {
   body {
-    @apply font-pretendard text-p leading-body text-primary antialiased;
+    @apply font-pretendard text-p leading-body text-base-content bg-base-100 antialiased transition-colors duration-300;
   }
 
   h1 {
-    @apply text-h1 leading-heading font-extrabold;
-  } /* 800 */
+    @apply text-3xl leading-heading font-normal;
+  }
+
   h2 {
-    @apply text-h2 leading-heading font-bold;
-  } /* 700 */
+    @apply text-h4 leading-heading font-normal;
+  }
+
   h3 {
-    @apply text-h3 leading-heading font-bold;
-  } /* 700 */
+    @apply text-xl leading-heading font-normal;
+  }
+
   h4 {
-    @apply text-h4 leading-heading font-medium;
-  } /* 500 */
-  h5 {
-    @apply text-h5 leading-heading font-medium;
-  } /* 500 */
-  h6 {
-    @apply text-h6 leading-heading font-normal;
-  } /* 400 */
+    @apply text-p leading-body font-normal text-neutral;
+  }
 
   p {
     @apply text-p leading-body font-normal;
-  } /* 400 */
+  }
+
   small {
-    @apply text-small leading-body font-normal;
-  } /* 400 */
+    @apply text-small leading-body font-normal text-neutral;
+  }
 }
