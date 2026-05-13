@@ -63,31 +63,18 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
     setIsEditing(false);
   };
 
-  const inputStyle = {
-    fontSize: '13px',
-    padding: '0.3rem 0.5rem',
-    borderRadius: '0.375rem',
-    border: '1.5px solid var(--base-300)',
-    background: 'var(--base-100)',
-    color: 'var(--base-content)',
-    outline: 'none',
-    width: '100%',
-  };
+  const inputClass =
+    'text-small px-2 py-1 rounded-md bg-base-100 text-base-content border-[1.5px] border-base-300 outline-none';
 
   // 수정 모드
   if (isEditing) {
     return (
       <div
-        className="pill-item"
-        style={{
-          borderLeftColor: borderColor,
-          flexDirection: 'column',
-          alignItems: 'stretch',
-          gap: '0.5rem',
-        }}
+        className="pill-item flex-col items-stretch gap-2"
+        style={{ borderLeftColor: borderColor }}
       >
         <input
-          style={inputStyle}
+          className={`${inputClass} w-full`}
           placeholder="병원명"
           value={editForm.hospital}
           onChange={(e) =>
@@ -96,7 +83,7 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
         />
         <div className="flex gap-2">
           <input
-            style={{ ...inputStyle, width: '50%' }}
+            className={`${inputClass} w-1/2`}
             placeholder="시작일 (예: 26.01.02.(금))"
             value={editForm.startDate}
             onChange={(e) =>
@@ -104,7 +91,7 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
             }
           />
           <input
-            style={{ ...inputStyle, width: '50%' }}
+            className={`${inputClass} w-1/2`}
             placeholder="종료일 (예: 01.16.(금))"
             value={editForm.endDate}
             onChange={(e) =>
@@ -113,13 +100,13 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
           />
         </div>
         <input
-          style={inputStyle}
+          className={`${inputClass} w-full`}
           placeholder="약 이름 (쉼표로 구분)"
           value={editForm.meds}
           onChange={(e) => setEditForm({ ...editForm, meds: e.target.value })}
         />
         <textarea
-          style={{ ...inputStyle, resize: 'none', height: '64px' }}
+          className={`${inputClass} w-full h-16 resize-none`}
           placeholder="주의사항 (없으면 비워두세요)"
           value={editForm.caution}
           onChange={(e) =>
