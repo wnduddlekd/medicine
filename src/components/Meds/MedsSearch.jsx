@@ -8,7 +8,7 @@ export default function MedsSearch({ value, onChange }) {
         className="absolute left-3.5 top-1/2 -translate-y-1/2 text-neutral"
       />
       <input
-        className="input pl-10 text-p"
+        className="w-full pl-10 py-2 text-p bg-transparent border-b border-base-300 outline-none focus:border-primary transition-colors"
         type="text"
         placeholder="병원명, 약 이름으로 검색..."
         value={value}
