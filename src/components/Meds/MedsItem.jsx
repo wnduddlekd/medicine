@@ -1,24 +1,19 @@
 import { useState } from 'react';
-import { Pencil, Trash2, ChevronDown, ChevronUp, Check, X } from 'lucide-react';
-import Button from '../commons/Button';
+import { useNavigate } from 'react-router-dom';
+import { Pencil, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
+import { ROUTES } from '../../constants/routes';
 
-function getStatus(doses) {
-  const filled = doses.filter(Boolean).length;
-  if (filled === doses.length) return 'completed';
-  if (filled === 0) return 'missed';
-  return 'pending';
-}
+const DOSE_LABELS = ['아침', '점심', '저녁'];
 
-function DoseDots({ doses, itemId, onDoseToggle }) {
+function DoseDots({ doses }) {
   return (
     <div className="flex items-center gap-1">
-      {doses.map((filled, i) => (
+      {doses.map((scheduled, i) => (
         <span
           key={i}
-          onClick={() => onDoseToggle(itemId, i)}
-          title={filled ? '복용 취소' : '복용 완료'}
-          className={`inline-block w-3 h-3 rounded-full shrink-0 cursor-pointer transition-transform hover:scale-[1.3] ${
-            filled ? 'bg-primary' : 'bg-base-300'
+          title={DOSE_LABELS[i]}
+          className={`inline-block w-3 h-3 rounded-full shrink-0 ${
+            scheduled ? 'bg-primary' : 'bg-base-300'
           }`}
         />
       ))}
@@ -26,120 +21,19 @@ function DoseDots({ doses, itemId, onDoseToggle }) {
   );
 }
 
-export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
+export default function MedsItem({ item, onDelete }) {
+  const navigate = useNavigate();
   const [showCaution, setShowCaution] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editForm, setEditForm] = useState({
-    hospital: item.hospital,
-    startDate: item.startDate,
-    endDate: item.endDate,
-    meds: item.meds,
-    caution: item.caution ?? '',
-  });
 
-  const status = getStatus(item.doses);
-  const borderColor = {
-    completed: 'var(--success)',
-    pending: 'var(--warning)',
-    missed: 'var(--error)',
-  }[status];
-
-  const handleSave = () => {
-    onEdit(item.id, {
-      ...editForm,
-      caution: editForm.caution.trim() === '' ? null : editForm.caution,
-    });
-    setIsEditing(false);
-  };
-
-  const handleCancel = () => {
-    setEditForm({
-      hospital: item.hospital,
-      startDate: item.startDate,
-      endDate: item.endDate,
-      meds: item.meds,
-      caution: item.caution ?? '',
-    });
-    setIsEditing(false);
-  };
-
-  const inputClass =
-    'text-small px-2 py-1 rounded-md bg-base-100 text-base-content border-[1.5px] border-base-300 outline-none';
-
-  // 수정 모드
-  if (isEditing) {
-    return (
-      <div
-        className="pill-item flex-col items-stretch gap-2"
-        style={{ borderLeftColor: borderColor }}
-      >
-        <input
-          className={`${inputClass} w-full`}
-          placeholder="병원명"
-          value={editForm.hospital}
-          onChange={(e) =>
-            setEditForm({ ...editForm, hospital: e.target.value })
-          }
-        />
-        <div className="flex gap-2">
-          <input
-            className={`${inputClass} w-1/2`}
-            placeholder="시작일 (예: 26.01.02.(금))"
-            value={editForm.startDate}
-            onChange={(e) =>
-              setEditForm({ ...editForm, startDate: e.target.value })
-            }
-          />
-          <input
-            className={`${inputClass} w-1/2`}
-            placeholder="종료일 (예: 01.16.(금))"
-            value={editForm.endDate}
-            onChange={(e) =>
-              setEditForm({ ...editForm, endDate: e.target.value })
-            }
-          />
-        </div>
-        <input
-          className={`${inputClass} w-full`}
-          placeholder="약 이름 (쉼표로 구분)"
-          value={editForm.meds}
-          onChange={(e) => setEditForm({ ...editForm, meds: e.target.value })}
-        />
-        <textarea
-          className={`${inputClass} w-full h-16 resize-none`}
-          placeholder="주의사항 (없으면 비워두세요)"
-          value={editForm.caution}
-          onChange={(e) =>
-            setEditForm({ ...editForm, caution: e.target.value })
-          }
-        />
-        <div className="flex gap-2 justify-end">
-          <Button size="sm" variant="primary" onClick={handleSave}>
-            <Check size={13} /> 저장
-          </Button>
-          <Button size="sm" variant="neutral" onClick={handleCancel}>
-            <X size={13} /> 취소
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
-  // 일반 모드
   return (
     <div
-      className="pill-item flex-col items-stretch"
-      style={{ borderLeftColor: borderColor }}
+      className="card-base py-4 pill-item flex-col items-stretch"
     >
       {/* 헤더 행 */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="pill-name mb-0">{item.hospital}</span>
-          <DoseDots
-            doses={item.doses}
-            itemId={item.id}
-            onDoseToggle={onDoseToggle}
-          />
+          <DoseDots doses={item.doses} />
           <span className="text-neutral text-small whitespace-nowrap">
             {item.startDate} ~ {item.endDate}
           </span>
@@ -147,7 +41,7 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
 
         <div className="flex items-center gap-1 shrink-0 ml-2">
           <button
-            onClick={() => setIsEditing(true)}
+            onClick={() => navigate(`${ROUTES.CHECK_IN}/${item.id}`)}
             title="수정"
             className="w-7 h-7 flex items-center justify-center rounded-md text-neutral cursor-pointer"
           >
@@ -173,7 +67,7 @@ export default function MedsItem({ item, onDelete, onDoseToggle, onEdit }) {
         <>
           <button
             onClick={() => setShowCaution((v) => !v)}
-            className="flex items-center gap-1 text-small text-neutral w-fit cursor-pointer mt-1 select-none"
+            className="flex items-center gap-1 text-small text-neutral w-fit cursor-pointer mt-1 select-none ml-auto"
           >
             주의사항
             {showCaution ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
