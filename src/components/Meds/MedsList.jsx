@@ -1,6 +1,6 @@
 import MedsItem from './MedsItem';
 
-export default function MedsList({ items, onDelete, onDoseToggle, onEdit }) {
+export default function MedsList({ items, onDelete }) {
   return (
     <div>
       {items.map((item) => (
@@ -8,8 +8,6 @@ export default function MedsList({ items, onDelete, onDoseToggle, onEdit }) {
           key={item.id}
           item={item}
           onDelete={onDelete}
-          onDoseToggle={onDoseToggle}
-          onEdit={onEdit}
         />
       ))}
     </div>
