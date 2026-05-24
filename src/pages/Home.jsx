@@ -3,7 +3,6 @@ import DoseCheck from '../components/Home/DoseCheck.jsx';
 import HomeCalender from '../components/Home/HomeCalender.jsx';
 import TodoList from '../components/Home/TodoList.jsx';
 import UserInfo from '../components/Home/UserInfo.jsx';
-import WideTodoList from '../components/Home/WideTodoList.jsx';
 import WideUserInfo from '../components/Home/WideUserInfo.jsx';
 import { medicines } from '../Mocks/medicationMock.js';
 
