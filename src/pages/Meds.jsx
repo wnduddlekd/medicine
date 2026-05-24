@@ -70,11 +70,10 @@ export default function Meds() {
     (m) => m.hospital.includes(search) || m.meds.includes(search)
   );
 
-  // 복용중/미복용 필터
-  if (filter.showType === '복용중인 약') {
-    filtered = filtered.filter((m) => m.doses.some(Boolean));
-  } else {
-    filtered = filtered.filter((m) => m.doses.every((d) => !d));
+  // TODO: 복용중/미복용 필터는 오늘 복용 여부 구현 후 정확한 로직으로 교체 예정
+  // 정렬
+  if (filter.sortBy === '이름순') {
+    filtered = [...filtered].sort((a, b) => a.hospital.localeCompare(b.hospital));
   }
 
   // 정렬
