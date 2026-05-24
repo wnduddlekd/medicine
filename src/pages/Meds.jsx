@@ -71,14 +71,8 @@ export default function Meds() {
   );
 
   // TODO: 복용중/미복용 필터는 오늘 복용 여부 구현 후 교체 예정
-  // 정렬 - '26.01.02.(금)' 형식에서 YY MM DD 추출
-  const parseDate = (dateStr) => dateStr.split('.').slice(0, 3).join('');
-
-  if (filter.sortBy === '날짜순') {
-    filtered = [...filtered].sort((a, b) =>
-      parseDate(a.startDate).localeCompare(parseDate(b.startDate))
-    );
-  } else if (filter.sortBy === '이름순') {
+  // 정렬
+  if (filter.sortBy === '이름순') {
     filtered = [...filtered].sort((a, b) => a.hospital.localeCompare(b.hospital));
   }
 
