@@ -21,6 +21,7 @@ export const Router = createBrowserRouter([
 
       { path: ROUTES.HOME, element: <Home /> },
       { path: ROUTES.CHECK_IN, element: <CheckIn /> },
+      { path: `${ROUTES.CHECK_IN}/:id`, element: <CheckIn /> },
       { path: ROUTES.MY_MEDS, element: <Meds /> },
       { path: ROUTES.CALENDER, element: <Calender /> },
       { path: ROUTES.INSIGHTS, element: <Insights /> },
