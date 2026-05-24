@@ -2,7 +2,7 @@ import { Pencil, Plus, Trash2 } from 'lucide-react';
 
 export default function TodoList() {
   return (
-    <div className="card-base max-w-67 w-full">
+    <div className="card-base min-w-67 w-full">
       <h3 className="text-primary font-semibold mb-5">Todo List</h3>
       <small>진행중인 체크리스트</small>
       <TodoItem />
