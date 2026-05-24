@@ -53,46 +53,33 @@ const INITIAL_MEDS = [
   },
 ];
 
-function getStatus(doses) {
-  const filled = doses.filter(Boolean).length;
-  if (filled === doses.length) return 'completed';
-  if (filled === 0) return 'missed';
-  return 'pending';
-}
-
 export default function Meds() {
   const [meds, setMeds] = useState(INITIAL_MEDS);
   const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState({ sortBy: '날짜순', showType: '복용중인 약' });
 
   const handleDelete = (id) => {
     setMeds((prev) => prev.filter((m) => m.id !== id));
   };
 
-  const handleDoseToggle = (id, index) => {
-    setMeds((prev) =>
-      prev.map((m) => {
-        if (m.id !== id) return m;
-        const newDoses = [...m.doses];
-        newDoses[index] = !newDoses[index];
-        return { ...m, doses: newDoses };
-      })
-    );
-  };
-
-  const handleEdit = (id, updated) => {
-    setMeds((prev) =>
-      prev.map((m) => (m.id === id ? { ...m, ...updated } : m))
-    );
-  };
-
   const totalMeds = meds.length;
-  const completedToday = meds.filter(
-    (m) => getStatus(m.doses) === 'completed'
-  ).length;
+  // TODO: 오늘 복용 여부 구현 후 연결 예정
+  const completedToday = 0;
 
-  const filtered = meds.filter(
+  let filtered = meds.filter(
     (m) => m.hospital.includes(search) || m.meds.includes(search)
   );
+
+  // TODO: 복용중/미복용 필터는 오늘 복용 여부 구현 후 정확한 로직으로 교체 예정
+  // 정렬
+  if (filter.sortBy === '이름순') {
+    filtered = [...filtered].sort((a, b) => a.hospital.localeCompare(b.hospital));
+  }
+
+  // 정렬
+  if (filter.sortBy === '이름순') {
+    filtered = [...filtered].sort((a, b) => a.hospital.localeCompare(b.hospital));
+  }
 
   return (
     <div className="w-full space-y-4">
@@ -101,14 +88,12 @@ export default function Meds() {
         <div className="flex-1">
           <MedsSearch value={search} onChange={setSearch} />
         </div>
-        <MedsFilter />
+        <MedsFilter onFilterChange={setFilter} />
         <MedsAddButton />
       </div>
       <MedsList
         items={filtered}
         onDelete={handleDelete}
-        onDoseToggle={handleDoseToggle}
-        onEdit={handleEdit}
       />
     </div>
   );
