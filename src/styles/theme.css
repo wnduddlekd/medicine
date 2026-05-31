@@ -260,27 +260,12 @@ body {
 
 /* 약 복용 리스트 아이템 */
 .pill-item {
-  background-color: var(--base-200);
-  border-left: 4px solid var(--primary);
-  padding: 1rem;
-  border-radius: 0.5rem;
   margin-bottom: 0.75rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.pill-item.completed {
-  border-left-color: var(--success);
-}
-
-.pill-item.pending {
-  border-left-color: var(--warning);
-}
-
-.pill-item.missed {
-  border-left-color: var(--error);
-}
 
 .pill-name {
   font-weight: 600;
