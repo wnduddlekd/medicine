@@ -7,13 +7,17 @@ import Caution from '../components/CheckIn/Caution';
 import CheckInActions from '../components/CheckIn/CheckInActions';
 
 export default function CheckIn() {
-  const [dose, setDose] = useState(1);
+  const [doses, setDoses] = useState([false, false, false]);
+
+  const handleToggleDose = (i) => {
+    setDoses((prev) => prev.map((v, idx) => (idx === i ? !v : v)));
+  };
 
   return (
     <div className="space-y-4">
       <TitleInput />
       <DosePeriod />
-      <DoseAmount selected={dose} onChange={setDose} />
+      <DoseAmount doses={doses} onToggle={handleToggleDose} />
       <MedicineList />
       <Caution />
       <CheckInActions />
