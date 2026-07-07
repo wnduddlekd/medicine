@@ -1,6 +1,6 @@
 import DailyDoseFeedback from '../components/Home/DailyDoseFeedback';
 import DoseCheck from '../components/Home/DoseCheck.jsx';
-import HomeCalender from '../components/Home/HomeCalender.jsx';
+import Calender from '../components/Home/Calender.jsx';
 import TodoList from '../components/Home/TodoList.jsx';
 import UserInfo from '../components/Home/UserInfo.jsx';
 import WideUserInfo from '../components/Home/WideUserInfo.jsx';
@@ -15,7 +15,7 @@ export default function Main() {
       </div>
       <div className="flex gap-7">
         <div className="w-full space-y-7">
-          <HomeCalender /> <DoseCheck />
+          <Calender /> <DoseCheck />
         </div>
         <div className="hidden md:flex flex-col gap-3 max-w-70 w-full mx-auto items-center">
           <UserInfo />
