@@ -251,3 +251,19 @@
 .fc .fc-scroller {
   overflow: hidden !important;
 }
+.selected-day .fc-daygrid-day-number {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--primary-content) !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 4px;
+}
+.fc-daygrid-day {
+  cursor: pointer;
+}

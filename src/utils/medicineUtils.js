@@ -1,6 +1,6 @@
-export const getTodayMedicines = (medicines) => {
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
+export const getMedicinesByDate = (date, medicines) => {
+  const target = new Date(date);
+  target.setHours(0, 0, 0, 0);
 
   return medicines.filter((medicine) => {
     const start = new Date(medicine.startDate);
@@ -9,6 +9,6 @@ export const getTodayMedicines = (medicines) => {
     start.setHours(0, 0, 0, 0);
     end.setHours(0, 0, 0, 0);
 
-    return today >= start && today <= end;
+    return target >= start && target <= end;
   });
 };

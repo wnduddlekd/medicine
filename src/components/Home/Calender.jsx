@@ -1,9 +1,9 @@
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { medicines } from '@/Mocks/medsMock.js';
+import { formatDate } from '../../utils/formatDate';
 
-export default function Calendar() {
+export default function Calendar({ medicines, selectedDate, setSelectedDate }) {
   const createCalendarEvents = () => {
     const events = [];
 
@@ -24,20 +24,23 @@ export default function Calendar() {
 
     return events;
   };
+
   function handleDateClick(info) {
-    console.log(info.dateStr);
+    setSelectedDate(info.dateStr);
   }
+
   return (
     <div className="min-w-100 w-full card-base">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
-        dateClick={handleDateClick}
         events={createCalendarEvents()}
+        dateClick={handleDateClick}
         locale="ko"
-        dayCellContent={(arg) => {
-          return arg.date.getDate();
-        }}
+        dayCellContent={(arg) => arg.date.getDate()}
+        dayCellClassNames={(arg) =>
+          formatDate(arg.date) === selectedDate ? 'selected-day' : ''
+        }
         height="auto"
       />
     </div>

@@ -1,8 +1,4 @@
-import { medicines } from '@/Mocks/medsMock.js';
-import { getTodayMedicines } from '@/utils/medicineUtils';
-
-export default function DoseCheck() {
-  const todayMedicines = getTodayMedicines(medicines);
+export default function DoseCheck({ medicines }) {
   return (
     <div className="card-base space-y-1">
       <div className="flex justify-between">
@@ -15,7 +11,7 @@ export default function DoseCheck() {
       </div>
       <hr className="border-0 h-px bg-base-300" />
       <div className="space-y-1.5 my-3">
-        {todayMedicines.map((medicine) => (
+        {medicines.map((medicine) => (
           <CheckItem key={medicine.id} medicine={medicine} />
         ))}
       </div>
