@@ -23,7 +23,14 @@ export default function Meds() {
     (m) => m.hospital.includes(search) || m.meds.includes(search)
   );
 
-  // TODO: 복용중/미복용 필터는 오늘 복용 여부 구현 후 교체 예정
+  filtered = filtered.filter((medicine) => {
+    const hasTakenDose = medicine.doses.some(Boolean);
+
+    return filter.showType === '복용중인 약'
+      ? hasTakenDose
+      : !hasTakenDose;
+  });
+
   // 정렬 - '26.01.02.(금)' 형식에서 YY MM DD 추출
   const parseDate = (dateStr) => dateStr.split('.').slice(0, 3).join('');
 
