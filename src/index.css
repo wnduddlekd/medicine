@@ -164,6 +164,42 @@
   @apply w-5 h-5 border-2 border-primary accent-primary cursor-pointer;
 }
 
+:root[data-theme='pillDark'] .check-base {
+  appearance: none;
+  display: grid;
+  place-content: center;
+  border: 2px solid var(--primary);
+  border-radius: 4px;
+  background-color: var(--base-200);
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+:root[data-theme='pillDark'] .check-base::before {
+  width: 5px;
+  height: 9px;
+  border-right: 2px solid var(--primary-content);
+  border-bottom: 2px solid var(--primary-content);
+  content: '';
+  opacity: 0;
+  transform: translateY(-1px) rotate(45deg);
+}
+
+:root[data-theme='pillDark'] .check-base:checked {
+  background-color: var(--primary);
+}
+
+:root[data-theme='pillDark'] .check-base:checked::before {
+  opacity: 1;
+}
+
+:root[data-theme='pillDark'] .check-base:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 35%, transparent);
+}
+
 @layer base {
   body {
     @apply font-pretendard text-p leading-body text-base-content bg-base-100 antialiased transition-colors duration-300;
