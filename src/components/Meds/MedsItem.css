@@ -1,0 +1,45 @@
+.meds-item {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: stretch;
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.meds-item__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.meds-item__summary {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meds-item__actions {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.meds-item__description {
+  width: 100%;
+  margin-top: 4px;
+  text-align: left;
+}
+
+.meds-item__caution-button {
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  align-self: flex-end;
+  gap: 4px;
+  margin-top: 4px;
+}

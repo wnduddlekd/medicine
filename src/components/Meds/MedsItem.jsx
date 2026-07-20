@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Pencil, Trash2, ChevronDown, ChevronUp } from 'lucide-react';
 import { ROUTES } from '../../constants/routes';
+import './MedsItem.css';
 
 const DOSE_LABELS = ['아침', '점심', '저녁'];
 
@@ -26,12 +27,10 @@ export default function MedsItem({ item, onDelete }) {
   const [showCaution, setShowCaution] = useState(false);
 
   return (
-    <div
-      className="card-base py-4 pill-item flex-col items-stretch"
-    >
+    <div className="card-base py-4 meds-item">
       {/* 헤더 행 */}
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2 flex-wrap">
+      <div className="meds-item__header">
+        <div className="meds-item__summary">
           <span className="pill-name mb-0">{item.hospital}</span>
           <DoseDots doses={item.doses} />
           <span className="text-neutral text-small whitespace-nowrap">
@@ -39,7 +38,7 @@ export default function MedsItem({ item, onDelete }) {
           </span>
         </div>
 
-        <div className="flex items-center gap-1 shrink-0 ml-2">
+        <div className="meds-item__actions">
           <button
             onClick={() => navigate(`${ROUTES.CHECK_IN}/${item.id}`)}
             title="수정"
@@ -59,7 +58,9 @@ export default function MedsItem({ item, onDelete }) {
 
       {/* 약 목록 */}
       {item.meds && (
-        <p className="text-neutral text-small leading-body mt-1">{item.meds}</p>
+        <p className="meds-item__description text-neutral text-small leading-body">
+          {item.meds}
+        </p>
       )}
 
       {/* 주의사항 토글 */}
@@ -67,7 +68,7 @@ export default function MedsItem({ item, onDelete }) {
         <>
           <button
             onClick={() => setShowCaution((v) => !v)}
-            className="flex items-center gap-1 text-small text-neutral w-fit cursor-pointer mt-1 select-none ml-auto"
+            className="meds-item__caution-button text-small text-neutral cursor-pointer select-none"
           >
             주의사항
             {showCaution ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
